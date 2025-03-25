@@ -3,9 +3,9 @@ import { Button } from "./ui/button"
 
 export function Footer() {
   return (
-    <footer className="fixed bottom-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t">
-      <div className="container flex h-14 items-center justify-between">
-        <p className="text-sm text-muted-foreground">
+    <footer className="w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t mt-auto">
+      <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-sm text-muted-foreground text-center sm:text-left">
           © 2024 Rice Student Venture Fund. All rights reserved.
         </p>
         <div className="flex items-center space-x-4">

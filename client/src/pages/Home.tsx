@@ -9,13 +9,13 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/hooks/useToast'
+import StarAnimation from '@/components/StarAnimation'
 import {
   Rocket,
   Users,
   TrendingUp,
   Lightbulb,
 } from 'lucide-react'
-import { ParticlesBackground } from '@/components/ParticlesBackground'
 
 export default function Home() {
   const [partners, setPartners] = useState<Partner[]>([])
@@ -53,53 +53,52 @@ export default function Home() {
 
   const features = [
     {
-      icon: <Rocket className="h-6 w-6 text-white" />,
+      icon: <Rocket className="h-6 w-6 text-blue-600" />,
       title: "Create lasting opportunities",
       description: "Build long term value.",
-      gradient: "from-blue-600 to-purple-700"
+      gradient: "bg-white"
     },
     {
-      icon: <Users className="h-6 w-6 text-white" />,
+      icon: <Users className="h-6 w-6 text-blue-600" />,
       title: "One-of-a-kind Experience",
       description: "Provide unique learning and career opportunities for Rice Students.",
-      gradient: "from-blue-600 to-purple-700"
+      gradient: "bg-white"
     },
     {
-      icon: <TrendingUp className="h-6 w-6 text-white" />,
+      icon: <TrendingUp className="h-6 w-6 text-blue-600" />,
       title: "Perpetual Growth",
       description: "Expand the Rice Entrepreneurship and Venture Ecosystem",
-      gradient: "from-blue-600 to-purple-700"
+      gradient: "bg-white"
     },
     {
-      icon: <Lightbulb className="h-6 w-6 text-white" />,
+      icon: <Lightbulb className="h-6 w-6 text-blue-600" />,
       title: "Empowered Innovation",
       description: "Support creative problem-solving and transformative ideas, fostering a culture of innovation.",
-      gradient: "from-blue-600 to-purple-700"
+      gradient: "bg-white"
     },
   ]
 
   return (
     <div className="space-y-16">
       <section className="relative h-[600px] rounded-3xl overflow-hidden mb-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700" />
-        <ParticlesBackground />
-        <div className="absolute inset-0 bg-black/20" />
+        <StarAnimation />
+
+        {/* Keep your existing text overlay */}
         <motion.div
           className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-8 p-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-center font-['Libre_Baskerville']">
             investing in<br />the future, at Rice.
           </h1>
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </section>
 
       <section className="text-center space-y-6">
         <motion.h2
-          className="text-4xl font-bold tracking-tight"
+          className="text-4xl font-bold tracking-tight font-['Libre_Baskerville']"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -107,7 +106,7 @@ export default function Home() {
           Rice Student Venture Fund
         </motion.h2>
         <motion.p
-          className="text-xl text-muted-foreground"
+          className="text-xl text-muted-foreground font-['Libre_Baskerville']"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -126,15 +125,14 @@ export default function Home() {
           >
             <Card className="relative h-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <div className="absolute inset-0">
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient}`} />
-                <ParticlesBackground />
+                <div className={`absolute inset-0 ${feature.gradient}`} />
               </div>
               <CardContent className="relative pt-6 text-center space-y-4 z-10">
-                <div className="mx-auto w-fit rounded-full bg-white/10 p-3 backdrop-blur-sm">
+                <div className="mx-auto w-fit rounded-full bg-blue-50 p-3">
                   {feature.icon}
                 </div>
-                <h3 className="font-semibold text-lg text-white">{feature.title}</h3>
-                <p className="text-sm text-white/80">{feature.description}</p>
+                <h3 className="font-semibold text-lg text-gray-900 font-['Libre_Baskerville']">{feature.title}</h3>
+                <p className="text-sm text-gray-600 font-['Libre_Baskerville']">{feature.description}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -142,7 +140,7 @@ export default function Home() {
       </section>
 
       <section className="space-y-8">
-        <h2 className="text-2xl font-semibold text-center">Our Partners</h2>
+        <h2 className="text-2xl font-semibold text-center font-['Libre_Baskerville']">Our Partners</h2>
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-8">
             {partners.map((partner) => (
@@ -173,8 +171,8 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold">Work with Us</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold font-['Libre_Baskerville']">Work with Us</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto font-['Libre_Baskerville']">
           Are you a passionate founder looking to turn your vision into reality? Rice Student Venture Fund is here to empower innovation and fuel the next generation of startups. We manage a $1.9M fund annually, researching over 8,000 startups, and hosting an exciting reverse demo day each year to showcase groundbreaking ideas.
           </p>
         </motion.div>
@@ -189,56 +187,56 @@ export default function Home() {
             <CardContent className="p-8">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Name</label>
+                  <label className="text-sm font-medium font-['Libre_Baskerville']">Name</label>
                   <Input
                     {...register("name", { required: true })}
-                    className="h-12 text-lg"
+                    className="h-12 text-lg font-['Libre_Baskerville']"
                   />
                   {errors.name && (
-                    <p className="text-sm text-destructive">Name is required</p>
+                    <p className="text-sm text-destructive font-['Libre_Baskerville']">Name is required</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Email</label>
+                  <label className="text-sm font-medium font-['Libre_Baskerville']">Email</label>
                   <Input
                     type="email"
                     {...register("email", {
                       required: true,
                       pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
                     })}
-                    className="h-12 text-lg"
+                    className="h-12 text-lg font-['Libre_Baskerville']"
                   />
                   {errors.email && (
-                    <p className="text-sm text-destructive">Valid email is required</p>
+                    <p className="text-sm text-destructive font-['Libre_Baskerville']">Valid email is required</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Company</label>
+                  <label className="text-sm font-medium font-['Libre_Baskerville']">Company</label>
                   <Input
                     {...register("company", { required: true })}
-                    className="h-12 text-lg"
+                    className="h-12 text-lg font-['Libre_Baskerville']"
                   />
                   {errors.company && (
-                    <p className="text-sm text-destructive">Company is required</p>
+                    <p className="text-sm text-destructive font-['Libre_Baskerville']">Company is required</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Message</label>
+                  <label className="text-sm font-medium font-['Libre_Baskerville']">Message</label>
                   <Textarea
                     {...register("message", { required: true })}
-                    className="min-h-[150px] text-lg p-4"
+                    className="min-h-[150px] text-lg p-4 font-['Libre_Baskerville']"
                   />
                   {errors.message && (
-                    <p className="text-sm text-destructive">Message is required</p>
+                    <p className="text-sm text-destructive font-['Libre_Baskerville']">Message is required</p>
                   )}
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full h-12 text-lg font-semibold"
+                  className="w-full h-12 text-lg font-semibold font-['Libre_Baskerville']"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}

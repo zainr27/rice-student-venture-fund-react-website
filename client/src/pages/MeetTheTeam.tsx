@@ -24,8 +24,8 @@ export default function MeetTheTeam() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-bold">Meet the Team</h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold font-['Libre_Baskerville']">Meet the Team</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto font-['Libre_Baskerville']">
           Our diverse team of passionate individuals working together to empower innovation and drive success.
         </p>
       </motion.div>
@@ -56,8 +56,8 @@ export default function MeetTheTeam() {
                   </a>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-semibold text-lg">{member.name}</h3>
-                  <p className="text-sm text-muted-foreground">{member.role}</p>
+                  <h3 className="font-semibold text-lg font-['Libre_Baskerville']">{member.name}</h3>
+                  <p className="text-sm text-muted-foreground font-['Libre_Baskerville']">{member.role}</p>
                 </div>
               </CardContent>
             </Card>

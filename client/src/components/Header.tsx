@@ -11,7 +11,7 @@ export function Header() {
   const location = useLocation()
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
+    <header className="fixed top-0 z-50 w-full border-b backdrop-blur-sm" style={{ backgroundColor: '#005596' }}> 
       <div className="flex h-16 items-center justify-between px-6">
         <Link to="/" className="flex items-center gap-2">
           <img
@@ -23,7 +23,7 @@ export function Header() {
               e.currentTarget.onerror = null
             }}
           />
-          <span className="text-xl font-bold text-primary">
+          <span className="text-xl font-bold text-white font-['Libre_Baskerville']">
             Rice Student Venture Fund
           </span>
         </Link>
@@ -33,10 +33,10 @@ export function Header() {
               key={item.name}
               to={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
+                "text-sm font-medium transition-colors hover:text-gray-300", // Changed hover:text-primary to hover:text-gray-300
                 location.pathname === item.href
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                  ? "text-white" // Changed text-primary to text-white
+                  : "text-gray-300" // Changed text-muted-foreground to text-gray-300
               )}
             >
               {item.name}
