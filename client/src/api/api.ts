@@ -1,16 +1,10 @@
-import axios, { AxiosRequestConfig, AxiosError } from 'axios';
+import axios from 'axios';
 
-const backendURL = '';
 const api = axios.create({
-  baseURL: backendURL,
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json',
   },
-  validateStatus: (status) => {
-    return status >= 200 && status < 300;
-  },
 });
-
-let accessToken: string | null = null;
 
 export default api;

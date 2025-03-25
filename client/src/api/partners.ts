@@ -1,10 +1,5 @@
-import api from './api'
 import { Partner } from '@/types'
 
-// Description: Get partners
-// Endpoint: GET /api/partners
-// Request: {}
-// Response: { partners: Partner[] }
 export const getPartners = () => {
   return new Promise<{ partners: Partner[] }>((resolve) => {
     setTimeout(() => {

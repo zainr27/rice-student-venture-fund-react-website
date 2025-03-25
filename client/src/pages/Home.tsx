@@ -34,17 +34,16 @@ export default function Home() {
   const onSubmit = async (data: FormData) => {
     try {
       setIsSubmitting(true)
-      const response = await submitContactForm(data)
+      await submitContactForm(data)
       toast({
         title: "Success!",
-        description: response.message,
+        description: "Your message has been sent.",
       })
       reset()
     } catch (error) {
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
-        variant: "destructive",
       })
     } finally {
       setIsSubmitting(false)

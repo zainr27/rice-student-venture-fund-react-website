@@ -1,72 +1,66 @@
-import { useCallback } from "react"
-import { Container, Engine } from "@tsparticles/engine"
-import Particles, { initParticlesEngine } from "@tsparticles/react"
-import { loadSlim } from "@tsparticles/slim"
-import { useEffect, useState } from "react"
+import Particles from 'react-particles-js'
 
 export const ParticlesBackground = () => {
-  const [init, setInit] = useState(false)
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine)
-    }).then(() => {
-      setInit(true)
-    })
-  }, [])
-
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    await console.log(container)
-  }, [])
-
-  if (!init) return null
-
   return (
     <Particles
-      className="absolute inset-0 z-0"
-      particlesLoaded={particlesLoaded}
-      options={{
-        fullScreen: false,
-        fpsLimit: 120,
+      params={{
         particles: {
-          color: {
-            value: "#ffffff"
-          },
-          links: {
-            color: "#ffffff",
-            distance: 150,
-            enable: true,
-            opacity: 0.3,
-            width: 1
-          },
-          move: {
-            direction: "none",
-            enable: true,
-            outModes: {
-              default: "bounce"
-            },
-            random: false,
-            speed: 1,
-            straight: false
-          },
           number: {
+            value: 80,
             density: {
               enable: true,
-              area: 800
             },
-            value: 80
           },
-          opacity: {
-            value: 0.3
+          color: {
+            value: "#ffffff",
           },
           shape: {
-            type: "circle"
+            type: "circle",
+          },
+          opacity: {
+            value: 0.5,
           },
           size: {
-            value: { min: 1, max: 3 }
-          }
+            value: 3,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 2,
+              size_min: 0.1,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.5,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "bounce",
+            bounce: false,
+          },
         },
-        detectRetina: true
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse",
+            },
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+            resize: true,
+          },
+        },
+        retina_detect: true,
       }}
     />
   )

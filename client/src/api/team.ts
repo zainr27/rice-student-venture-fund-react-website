@@ -1,10 +1,14 @@
-import api from './api'
 import { TeamMember } from '@/types'
 
-// Description: Get team members
-// Endpoint: GET /api/team
-// Request: {}
-// Response: { members: TeamMember[] }
+export const getTeam = async () => {
+  try {
+    const response = await fetch('/api/team');
+    return response.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getTeamMembers = () => {
   return new Promise<{ members: TeamMember[] }>((resolve) => {
     setTimeout(() => {
